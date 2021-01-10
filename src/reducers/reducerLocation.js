@@ -1,7 +1,7 @@
 import * as constants from "../constants/constants";
 
 const initialState = {
-    lang: 'EN',
+    lang: 'en',
 };
 
 const reducerAccount = (state = initialState, action) => {

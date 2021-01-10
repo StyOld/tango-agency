@@ -1,6 +1,6 @@
 import React from 'react';
-import LocationSwitcher from '../LocationSwitcher/LocationSwitcher'
-import './header.css'
+import LocationSwitcher from '../LocationSwitcher/LocationSwitcher';
+import './header.css';
 
 class Header extends React.Component {
     render() {

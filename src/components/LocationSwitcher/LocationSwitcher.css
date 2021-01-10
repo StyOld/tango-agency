@@ -8,6 +8,11 @@
     cursor: pointer;
 }
 
+.location-switcher__button:active,
+.location-switcher__button:focus {
+    outline: none !important;
+}
+
 .location-switcher__button:hover,
 .location-switcher__button--active {
     color: #4a55c0;

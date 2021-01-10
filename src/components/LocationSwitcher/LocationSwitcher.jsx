@@ -1,27 +1,36 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-import * as actionsLocation from '../../actions/actionsLocation'
-import './LocationSwitcher.css'
+import * as actionsLocation from '../../actions/actionsLocation';
+import './LocationSwitcher.css';
 
 class LocationSwitcher extends React.Component {
+    static propTypes = {
+        lang: PropTypes.oneOf(['RU', 'EN']).isRequired,
+    };
+
+    static defaultProps = {
+        lang: 'en',
+    }
+
     render() {
-        const {lang = 'RU', handleSwitchLocation} = this.props;
+        const {lang, handleSwitchLocation} = this.props;
 
         return (
             <div className="location-switcher">
                 <button
                     type="button"
-                    disabled={lang === 'RU'}
-                    className={lang === 'RU' ? 'location-switcher__button location-switcher__button--active' : 'location-switcher__button'}
-                    onClick={() => handleSwitchLocation('RU')}
+                    disabled={lang === 'ru'}
+                    className={lang === 'ru' ? 'location-switcher__button location-switcher__button--active' : 'location-switcher__button'}
+                    onClick={() => handleSwitchLocation('ru')}
                 >
                     RU
                 </button>
                 <button
                     type="button"
-                    disabled={lang === 'EN'}
-                    className={lang === 'EN' ? 'location-switcher__button location-switcher__button--active' : 'location-switcher__button'}
-                    onClick={() => handleSwitchLocation('EN')}
+                    disabled={lang === 'en'}
+                    className={lang === 'en' ? 'location-switcher__button location-switcher__button--active' : 'location-switcher__button'}
+                    onClick={() => handleSwitchLocation('en')}
                 >
                     EN
                 </button>

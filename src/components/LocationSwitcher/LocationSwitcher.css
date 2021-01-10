@@ -1,0 +1,30 @@
+.location-switcher__button {
+    font-size: 20px;
+    font-weight: 600;
+    color: #d8d8d8;
+    padding: 0 10px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.location-switcher__button:hover,
+.location-switcher__button--active {
+    color: #4a55c0;
+}
+
+.location-switcher__button:first-child {
+    position: relative;
+    padding-right: 8px;
+}
+
+.location-switcher__button:first-child:after {
+    content: "";
+    position: absolute;
+    display: block;
+    top: 3px;
+    right: 0;
+    height: 16px;
+    width: 2px;
+    background: #d8d8d8;
+}

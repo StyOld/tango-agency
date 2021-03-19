@@ -1,7 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import Header from './Header/HeaderSection';
-import strings from './strings'
+import Header from '../../components/Header/HeaderSection';
+import RegistrationButton from "../../components/RegistrationButton/RegistrationButton";
+import strings from '../../translations'
 import './App.css';
 
 function App(props) {
@@ -11,6 +12,9 @@ function App(props) {
     return (
         <div className="tango-agency">
             <Header/>
+
+            <RegistrationButton/>
+
             <div>
                 {getTranslation('test1')}
             </div>

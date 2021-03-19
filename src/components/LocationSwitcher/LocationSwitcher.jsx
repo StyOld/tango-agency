@@ -6,7 +6,7 @@ import './LocationSwitcher.css';
 
 class LocationSwitcher extends React.Component {
     static propTypes = {
-        lang: PropTypes.oneOf(['RU', 'EN']).isRequired,
+        lang: PropTypes.oneOf(['ru', 'en']).isRequired,
     };
 
     static defaultProps = {

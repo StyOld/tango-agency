@@ -1,5 +1,40 @@
 .registration-form__container {
+    margin: 30px 20px;
+}
+
+.registration-form__section {
     display: flex;
     flex-direction: column;
-    margin: 30px 20px;
+    margin-bottom: 5px;
+}
+
+.registration-form__input,
+.registration-form__input-error {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid #000;
+    padding: 10px 15px;
+    margin-bottom: 17px;
+    font-size: 16px;
+}
+
+.registration-form__input-error {
+    border: 2px solid red;
+    padding: 9px 14px;
+    margin-bottom: 2px;
+}
+
+.registration-form__label {
+    margin-bottom: 2px;
+    color: #b46e07;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.registration-form__error-validation {
+    font-weight: 700;
+    font-size: 13px;
+    color: red;
 }

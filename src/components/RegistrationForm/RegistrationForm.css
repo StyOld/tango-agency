@@ -5,7 +5,7 @@
 .registration-form__section {
     display: flex;
     flex-direction: column;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .registration-form__input,
@@ -28,7 +28,7 @@
 
 .registration-form__label {
     margin-bottom: 2px;
-    color: #b46e07;
+    color: #000000;
     font-size: 18px;
     font-weight: bold;
 }
@@ -37,4 +37,35 @@
     font-weight: 700;
     font-size: 13px;
     color: red;
+}
+
+.registration-form__textarea,
+.registration-form__textarea-error {
+    width: 100%;
+    max-width: 526px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #000000;
+    margin-bottom: 17px;
+}
+
+.registration-form__textarea-error {
+    border: 2px solid red;
+    padding: 9px 14px;
+    margin-bottom: 2px;
+}
+
+.registration-form__select {
+    height: 40px;
+    border-radius: 4px;
+    padding: 10px 13px;
+    background-color: white;
+    border: 1px solid #000000;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+select {
+    cursor: pointer !important;
 }

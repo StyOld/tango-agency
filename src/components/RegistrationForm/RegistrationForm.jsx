@@ -1,21 +1,24 @@
 import React from 'react';
 import { useForm, Controller } from "react-hook-form";
 import TextareaAutosize from 'react-textarea-autosize';
+import Select from 'react-select-native';
 import './RegistrationForm.css'
 
 const defaultValues = {
-    Name: "",
-    About: "",
+    name: "",
+    about: "",
+    age: 17,
 };
 
 const RegistrationForm = () => {
-    const { register, handleSubmit, watch, errors, control } = useForm({
+    const { register, handleSubmit, errors, clearErrors, control } = useForm({
         defaultValues,
-        // mode: 'onBlur',
         mode: 'onSubmit',
-        shouldFocusError: true,
+        reValidateMode: 'onChange',
+        shouldFocusError: false,
     });
     const onSubmit = data => console.log(data);
+    console.log('errors=', errors)
 
     return (
         <form
@@ -24,26 +27,53 @@ const RegistrationForm = () => {
         >
             <section className="registration-form__section">
                 <label
-                    htmlFor="Name"
+                    htmlFor="name"
                     className="registration-form__label"
                 >
                     Имя
                 </label>
                 <input
-                    name="Name"
-                    // placeholder="Введите Ваше имя"
-                    className={`registration-form__input${errors.Name ? '-error' : ''}`}
+                    name="name"
+                    placeholder="Введите Ваше имя"
+                    className={`registration-form__input${errors.name ? '-error' : ''}`}
                     ref={register({ required: true, minLength: 3 })}
+                    onClick={() => clearErrors('name')}
                 />
                 <div className="registration-form__error-validation">
-                    {errors.Name?.type === "required" && 'Это поле обязательно для заполнения'}
-                    {errors.Name?.type === "minLength" && 'Минимум 3 символа'}
+                    {errors.name?.type === "required" && 'Это поле обязательно для заполнения'}
+                    {errors.name?.type === "minLength" && 'Минимум 3 символа'}
                 </div>
             </section>
 
             <section className="registration-form__section">
                 <label
-                    htmlFor="About"
+                    htmlFor="age"
+                    className="registration-form__label"
+                >
+                    Ваш возраст
+                </label>
+                <Controller
+                    render={(
+                        { onChange, value, ref }
+                    ) => (
+                        <Select
+                            onChange={e => onChange(e)}
+                            options={Array.from({length: 45}, (v, i) => ({value: 17+i, label: 17+i}))}
+                            unselected={{value: 17, label: 17}}
+                            value={value}
+                            inputRef={ref}
+                            className='registration-form__select'
+                            open={true}
+                        />
+                    )}
+                    name="age"
+                    control={control}
+                />
+            </section>
+
+            <section className="registration-form__section">
+                <label
+                    htmlFor="about"
                     className="registration-form__label"
                 >
                     Ваше хобби
@@ -51,18 +81,19 @@ const RegistrationForm = () => {
                 <Controller
                     as={
                         <TextareaAutosize
-                            style={{padding: '10px 15px', fontSize: '16px', borderRadius: '4px'}}
+                            minRows={3}
+                            maxRows={6}
+                            placeholder="В кратце опишите Ваши увлечения"
+                            className={`registration-form__textarea${errors.about ? '-error' : ''}`}
+                            onClick={() => clearErrors('about')}
                         />
                     }
-                    name="About"
-                    minRows={3}
-                    maxRows={6}
+                    name="about"
                     control={control}
-                    ref={register({ required: true, minLength: 10 })}
+                    rules={{ required: true }}
                 />
                 <div className="registration-form__error-validation">
-                    {errors.About?.type === "required" && 'Это поле обязательно для заполнения'}
-                    {errors.About?.type === "minLength" && 'Минимум 10 символа'}
+                    {errors.about && 'Это поле обязательно для заполнения'}
                 </div>
             </section>
 

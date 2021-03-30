@@ -1,11 +1,19 @@
 .registration-form__container {
     margin: 30px 20px;
+    max-height: 500px;
 }
 
 .registration-form__section {
     display: flex;
     flex-direction: column;
+    width: 100%;
     margin-bottom: 10px;
+}
+
+.registration-form__section-double {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .registration-form__input,

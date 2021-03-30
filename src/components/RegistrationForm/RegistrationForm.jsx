@@ -12,6 +12,7 @@ const defaultValues = {
     age: { value: 17, label: 17 },
     country: { value: "RU", label: "Russian Federation", phone: "7" },
     english_level: { value: 'middle', label: 'Средний'},
+    additional_lang: "",
 };
 
 const formatOptionLabel = ({ value, label }) => (
@@ -100,6 +101,27 @@ const RegistrationForm = () => {
                     name="english_level"
                     as={Select}
                     options={englishLevel}
+                    control={control}
+                />
+            </section>
+
+            <section className="registration-form__section">
+                <label
+                    htmlFor="additional_lang"
+                    className="registration-form__label"
+                >
+                    Дополнительные языки
+                </label>
+                <Controller
+                    as={
+                        <TextareaAutosize
+                            minRows={2}
+                            maxRows={2}
+                            placeholder="Напишите другие языки и уровень их владения"
+                            className="registration-form__textarea"
+                        />
+                    }
+                    name="additional_lang"
                     control={control}
                 />
             </section>

@@ -258,7 +258,7 @@ export const countries = [
 ];
 
 export const englishLevel = [
-    { value: 'low', label: 'Низкий'},
-    { value: 'middle', label: 'Средний'},
-    { value: 'high', label: 'Высокий'},
+    { value: "low", label: "Низкий" },
+    { value: "middle", label: "Средний" },
+    { value: "high", label: "Высокий" },
 ];

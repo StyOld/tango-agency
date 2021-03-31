@@ -26,9 +26,10 @@
 .customModal {
     width: 100%;
     height: 100%;
-    max-width: 600px;
-    max-height: 400px;
+    max-width: 450px;
+    max-height: 677px;
     border-radius: 5px;
+    padding: 0;
 }
 
 @keyframes customEnterOverlayAnimation {

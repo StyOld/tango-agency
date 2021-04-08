@@ -1,24 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Modal } from 'react-responsive-modal';
-import RegistrationForm from "../RegistrationForm/RegistrationForm";
+import RegistrationForm from '../RegistrationForm/RegistrationForm';
+import { defaultValues } from '../../config'
 import 'react-responsive-modal/styles.css';
 import './RegistrationButton.css'
 
 const RegistrationButton = () => {
-    const [isOpen, setOpen] = React.useState(false);
-    const OpenModal = () => setOpen(true);
-    const CloseModal = () => setOpen(false);
+    const [isOpen, setOpen] = useState(false);
+    const [isSubmit, setIsSubmit] = useState(false);
+    const valuesFromStorage = JSON.parse(localStorage.getItem('formValues')) || defaultValues;
+    const openModal = () => setOpen(true);
+    const closeModal = () => setOpen(false);
 
     return (
         <>
-            <button className="registration-button" onClick={OpenModal}>
+            <button className="registration-button" onClick={openModal}>
                 Оставить заявку
             </button>
 
             {isOpen && (
                 <Modal
                     open={isOpen}
-                    onClose={CloseModal}
+                    onClose={closeModal}
                     center
                     classNames={{
                         overlayAnimationIn: 'customEnterOverlayAnimation',
@@ -26,13 +29,18 @@ const RegistrationButton = () => {
                         modalAnimationIn: 'customEnterModalAnimation',
                         modalAnimationOut: 'customLeaveModalAnimation',
                         overlay: 'customOverlay',
-                        modal: 'customModal',
+                        modal: isSubmit ? 'customModalThanks' : 'customModalForm',
                     }}
                     animationDuration={300}
                     aria-labelledby="my-modal-title"
                     aria-describedby="my-modal-description"
                 >
-                    <RegistrationForm />
+                    <RegistrationForm
+                        defaultValues={valuesFromStorage}
+                        isSubmit={isSubmit}
+                        setIsSubmit={setIsSubmit}
+                        closeModal={closeModal}
+                    />
                 </Modal>
             )}
         </>

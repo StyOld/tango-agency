@@ -262,3 +262,13 @@ export const englishLevel = [
     { value: "middle", label: "Средний" },
     { value: "high", label: "Высокий" },
 ];
+
+export const defaultValues = {
+    name: "",
+    age: { value: 17, label: 17 },
+    country: { value: "RU", label: "Russian Federation", phone: "7" },
+    english_level: { value: 'middle', label: 'Средний'},
+    additional_lang: "",
+    about: "",
+    phone: "7-",
+};
